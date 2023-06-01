@@ -7,7 +7,7 @@ const TextField = ({ id, type = 'text', label, name, error, register }) => {
 
       <input
         className={`form-control ${Boolean(error) && 'is-invalid'}`}
-        {...register(name)}
+        {...register(name, { valueAsNumber: type === 'number' })}
         id={id}
         name={name}
         type={type}
