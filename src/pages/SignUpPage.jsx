@@ -13,6 +13,7 @@ import { signUpValidation } from '../validations/signUpValidation'
 
 import TextField from '../components/TextField'
 import PasswordField from '../components/PasswordField'
+import Button from '../components/Button'
 
 const SignUpPage = () => {
   const navigate = useNavigate()
@@ -110,9 +111,13 @@ const SignUpPage = () => {
               />
             </div>
           </div>
-          <button className='btn btn-primary w-100' disabled={isLoading}>
+          <Button
+            loading={isLoading}
+            loadingMessage='Registrando...'
+            styles='btn-primary w-100'
+          >
             Registrarse
-          </button>
+          </Button>
         </form>
         <div className='card-text'>
           Ya esta registrado? Puede ingresar a su cuenta{' '}
