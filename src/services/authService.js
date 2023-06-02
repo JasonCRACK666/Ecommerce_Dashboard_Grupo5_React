@@ -20,6 +20,11 @@ export const signIn = async loginData => {
   return res.data
 }
 
+export const signUp = async signUpData => {
+  const res = await authEndpoint.post('/register', signUpData)
+  return res.data
+}
+
 export const getMe = async () => {
   const res = await authEndpointWithAuthToken.get('/me')
   return res.data
