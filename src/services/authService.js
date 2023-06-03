@@ -25,6 +25,11 @@ export const signUp = async signUpData => {
   return res.data
 }
 
+export const activateAccount = async activationCode => {
+  const res = await authEndpoint.post('/activate', { activationCode })
+  return res.data
+}
+
 export const getMe = async () => {
   const res = await authEndpointWithAuthToken.get('/me')
   return res.data
