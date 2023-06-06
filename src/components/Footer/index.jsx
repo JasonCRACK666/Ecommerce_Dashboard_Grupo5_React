@@ -1,10 +1,18 @@
+import { BsCart4 } from 'react-icons/bs'
+import { FaFacebook } from 'react-icons/fa'
+import { FaInstagram } from 'react-icons/fa'
+import { FaTwitterSquare } from 'react-icons/fa'
+import { FaRegCopyright } from 'react-icons/fa'
+
 function Footer() {
   return (
     <div>
       <footer>
         <div className='row p-5 bg-dark text-white'>
           <div className='col-xs-12 col-xs-6 col-lg-4'>
-            <p className='h2 text-center'>TECH HOUSE</p>
+            <p className='text-center fw-bold  fs-1'>
+              <BsCart4 /> TECH HOUSE
+            </p>
             <p className='h7 font-monospace text-start text-secondary'>
               Somos una empresa enfocada en la venta de productos de tecnología
               como lo son los celulares, las laptops, las tables y asi mucho
@@ -16,7 +24,7 @@ function Footer() {
             </p>
           </div>
           <div className='col-xs-10 col-xs-5 col-lg-2'>
-            <p className='h5 mb-3'>Marcas Populares</p>
+            <p className='h5 mb-3 fw-bold'>Marcas Populares</p>
             <div className='mb-2'>
               <a className='text-secondary text-decoration-none' href='#'>
                 SAMSUNG
@@ -44,7 +52,7 @@ function Footer() {
             </div>
           </div>
           <div className='col-xs-10 col-xs-5 col-lg-2'>
-            <p className='h5 mb-3'>Visita</p>
+            <p className='h5 mb-3 fw-bold'>Visita</p>
             <div className='mb-2'>
               <p className='text-secondary text-lg-start'>
                 AV. España 2739, Trujillo
@@ -55,25 +63,25 @@ function Footer() {
             </div>
           </div>
           <div className='col-xs-10 col-xs-5 col-lg-2'>
-            <p className='h5 mb-3'>Redes sociales</p>
+            <p className='h5 mb-3 fw-bold'>Redes sociales</p>
             <div className='mb-2'>
               <a className='text-secondary text-decoration-none' href='#'>
-                Facebook
+                <FaFacebook className='fs-4' /> Facebook
               </a>
             </div>
             <div className='mb-2'>
               <a className='text-secondary text-decoration-none' href='#'>
-                Instagram
+                <FaInstagram className='fs-4' /> Instagram
               </a>
             </div>
             <div className='mb-2'>
               <a className='text-secondary text-decoration-none' href='#'>
-                Twitter
+                <FaTwitterSquare className='fs-4' /> Twitter
               </a>
             </div>
           </div>
           <div className='col-xs-10 col-xs-5 col-lg-2'>
-            <p className='h5 mb-3'>Legal</p>
+            <p className='h5 mb-3 fw-bold'>Legal</p>
             <div className='mb-2'>
               <a className='text-secondary text-decoration-none' href='#'>
                 Terminos de Privacidad
@@ -81,7 +89,9 @@ function Footer() {
             </div>
           </div>
           <div className='col-xs-12'>
-            <p className='text-white text-center'>Tech House - 2023</p>
+            <p className='text-white text-center'>
+              <FaRegCopyright /> Tech House - 2023
+            </p>
           </div>
         </div>
       </footer>
