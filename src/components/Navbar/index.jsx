@@ -1,10 +1,15 @@
+import { useAuthStore } from '../../store/useAuthStore'
+
 import MenuCategories from '../MenuCategories'
 import MenuBrands from '../MenuBrands'
 import NavbarButton from '../NavbarButton'
+import UserMenuOptions from '../UserMenuOptions'
 
 import { BsCart4 } from 'react-icons/bs'
 
 const Navbar = () => {
+  const isAuth = useAuthStore(state => state.isAuth)
+
   return (
     <div>
       <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
@@ -22,16 +27,23 @@ const Navbar = () => {
               <form className='d-flex align-items-center'>
                 <input
                   className='form-control me-2'
-                  type='search'
                   placeholder='Buscar'
                   aria-label='Search'
                   style={{ height: '40px', width: '300px' }}
                 />
               </form>
-              <div className='d-flex'>
-                <NavbarButton title='Iniciar Sesión' navigator='/auth/login' />
-                <NavbarButton title='Registrar' navigator='/auth/signup' />
-              </div>
+
+              {isAuth ? (
+                <UserMenuOptions />
+              ) : (
+                <div className='d-flex'>
+                  <NavbarButton
+                    title='Iniciar Sesión'
+                    navigator='/auth/login'
+                  />
+                  <NavbarButton title='Registrar' navigator='/auth/signup' />
+                </div>
+              )}
             </div>
           </div>
         </div>
