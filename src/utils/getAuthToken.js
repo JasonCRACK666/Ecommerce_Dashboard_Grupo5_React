@@ -8,6 +8,6 @@ export const getAuthToken = () => {
   return tokenFromAuthStore === null
     ? tokenFromLocalStorage === null
       ? null
-      : tokenFromLocalStorage
-    : tokenFromAuthStore
+      : `Bearer ${tokenFromLocalStorage}`
+    : `Bearer ${tokenFromAuthStore}`
 }
