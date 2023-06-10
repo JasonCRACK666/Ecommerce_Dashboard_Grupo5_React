@@ -1,9 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom'
 
 import AuthLayout from './layouts/AuthLayout'
+import MainLayout from './layouts/MainLayout'
 
 import { useRedirectIfAuthenticated } from './loaders/useRedirectIfAuthenticated'
 import { useActivateUserAccount } from './loaders/useActivateUserAccount'
+import { useVerifyAuth } from './loaders/useVerifyAuth'
 
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
@@ -33,7 +35,14 @@ const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: <HomePage />
+    loader: useVerifyAuth,
+    element: <MainLayout />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />
+      }
+    ]
   }
 ])
 
