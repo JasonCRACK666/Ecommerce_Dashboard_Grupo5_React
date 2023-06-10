@@ -13,9 +13,10 @@ import { loginValidation } from '../validations/loginValidation'
 
 import TextField from '../components/TextField'
 import PasswordField from '../components/PasswordField'
+import Button from '../components/Button'
 
 const LoginPage = () => {
-  const { setToken } = useAuthStore()
+  const { setToken, setIsAuth } = useAuthStore()
   const navigate = useNavigate()
 
   const { mutate: mutateLogin, isLoading } = useMutation({
@@ -23,6 +24,7 @@ const LoginPage = () => {
     onSuccess: ({ token }) => {
       localStorage.setItem('token', token)
       setToken(token)
+      setIsAuth(true)
       navigate('/')
     },
     onError: error => {
@@ -67,23 +69,13 @@ const LoginPage = () => {
             error={errors.password}
           />
 
-          <button
-            className='btn btn-primary w-100'
-            disabled={isLoading}
-            type='submit'
+          <Button
+            loading={isLoading}
+            loadingMessage={'Ingresando...'}
+            styles={'btn-primary w-100'}
           >
-            {isLoading ? (
-              <>
-                <span>Ingresando...</span>
-                <span
-                  className='spinner-border spinner-border-sm'
-                  aria-hidden='true'
-                />
-              </>
-            ) : (
-              <span>Ingresar</span>
-            )}
-          </button>
+            Ingresar
+          </Button>
         </form>
         <div className='card-text'>
           No se ha registrado? Puede registrarse{' '}
