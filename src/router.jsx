@@ -11,6 +11,7 @@ import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
 import SignUpPage from './pages/SignUpPage'
 import ActivationPage from './pages/ActivationPage'
+import ErrorPage from './pages/ErrorPage'
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     loader: useVerifyAuth,
+    errorElement: <ErrorPage />,
     element: <MainLayout />,
     children: [
       {
