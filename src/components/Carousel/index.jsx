@@ -13,7 +13,7 @@ function Carousel() {
     'http://cdn.shopify.com/s/files/1/0590/2830/8127/files/BANNER-DESKTOP-DIA-DEL-PADRE-PERU_2000x518.jpg?v=1685999352'
   return (
     <div id='carouselExampleFade' className='carousel slide carousel-fade'>
-      <div className='carousel-inner' data-bs-interval='1000'>
+      <div className='carousel-inner'>
         <div className='carousel-item active'>
           <img src={img1} className='d-block w-100 h-75' alt='...'></img>
         </div>
