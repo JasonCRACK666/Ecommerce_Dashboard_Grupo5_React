@@ -7,11 +7,12 @@ import { useRedirectIfAuthenticated } from './loaders/useRedirectIfAuthenticated
 import { useActivateUserAccount } from './loaders/useActivateUserAccount'
 import { useVerifyAuth } from './loaders/useVerifyAuth'
 
-import HomePage from './pages/HomePage'
+import ErrorPage from './pages/ErrorPage'
 import LoginPage from './pages/LoginPage'
 import SignUpPage from './pages/SignUpPage'
 import ActivationPage from './pages/ActivationPage'
-import ErrorPage from './pages/ErrorPage'
+import HomePage from './pages/HomePage'
+import ProductDetailPage from './pages/ProductDetailPage'
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage />
+      },
+      {
+        path: '/product/:productId',
+        element: <ProductDetailPage />
       }
     ]
   }
