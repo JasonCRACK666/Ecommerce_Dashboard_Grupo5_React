@@ -11,7 +11,6 @@ export const useVerifyAuth = async () => {
   const authToken = getAuthToken()
 
   if (!authToken) {
-    logOut()
     return null
   }
 
