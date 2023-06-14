@@ -4,16 +4,13 @@ const PromotionCard = ({
   finalPrice,
   originalPrice,
   discountRate,
-  width
+  width,
+  height
 }) => {
-  const cardStyle = {
-    width: width || '50rem'
-  }
-
   return (
-    <div className='card m-4' style={cardStyle}>
+    <div className='card' style={{ width: width ?? '100%' }}>
       <div className='row g-0'>
-        <div className='col-md-7'>
+        <div className='col-md-8'>
           <div className='card-body bg-white'>
             <h5 className='card-title fs-4'>{title}</h5>
             <div className='card-text'>
@@ -28,13 +25,14 @@ const PromotionCard = ({
             </div>
           </div>
         </div>
-        <div className='col-md-5'>
+        <div className='col-md-4'>
           <img
             src={image}
             className='card-img-top'
             alt='Imagen de promoción'
             style={{
-              maxHeight: '140px',
+              maxHeight: width ? '100%' : '140px',
+              height: height ?? '100%',
               objectFit: 'cover'
             }}
           />
