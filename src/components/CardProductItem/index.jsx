@@ -21,7 +21,7 @@ const CardProductItem = ({
         <div className='d-flex align-items-end gap-2'>
           <p className='text-light fw-bold fs-5'>S/{finalPrice}</p>
 
-          {!discountRate && (
+          {discountRate && (
             <p className='text-decoration-line-through text-secondary'>
               S/{originalPrice}
             </p>
