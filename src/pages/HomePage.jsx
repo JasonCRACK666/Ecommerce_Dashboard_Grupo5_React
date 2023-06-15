@@ -1,10 +1,24 @@
+import {
+  getAllComputers,
+  getAllLaptops,
+  getAllPhonesInOffer
+} from '../services/productService'
+
 import Carousel from '../components/Carousel'
+import ProductSection from '../components/ProductSection'
 import PromotionCard from '../components/PromotionCard'
 
 const HomePage = () => {
   return (
     <div className='container py-4 vstack gap-3'>
       <Carousel />
+
+      <ProductSection
+        title='Lo más vendido en computadoras'
+        queryFn={getAllComputers}
+        queryKey={'computerSection'}
+      />
+
       <div className='row'>
         <div className='col-xs-12 col-6'>
           <PromotionCard
@@ -26,12 +40,24 @@ const HomePage = () => {
         </div>
       </div>
 
+      <ProductSection
+        title='Lo más reciente en laptops'
+        queryFn={getAllLaptops}
+        queryKey={'laptopSection'}
+      />
+
       <PromotionCard
         finalPrice={1338}
         discountRate={null}
         image='https://electronicstore.com.pe/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/p/o/portatil-asus-e410m-celeron-ssd128gb-memoria-4gb-de-14-blue.jpg'
         originalPrice={1338}
         title='LAPTOP ASUS E410M - CEL N4020 - RAM 4GB - SSD 128GB - WIN10 - PANTALLA 14" BLUE'
+      />
+
+      <ProductSection
+        title='Celulares en oferta'
+        queryFn={getAllPhonesInOffer}
+        queryKey={'phoneInOfferSection'}
       />
     </div>
   )
