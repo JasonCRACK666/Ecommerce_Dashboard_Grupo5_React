@@ -1,7 +1,7 @@
 import { FaStar } from 'react-icons/fa'
 
 const CardProductItem = ({
-  images,
+  image,
   title,
   originalPrice,
   discountRate,
@@ -12,8 +12,13 @@ const CardProductItem = ({
   const residuaryStar = 5 - averageScore
 
   return (
-    <div className='card m-5' style={{ width: '18rem' }}>
-      <img src={images} className='card-img-top' alt='productItem' />
+    <div className='card'>
+      <img
+        src={image}
+        className='card-img-top'
+        alt='productItem'
+        style={{ height: '220px', objectFit: 'cover' }}
+      />
 
       <div className='card-body bg-dark'>
         <h4 className='card-title text-light'>{title}</h4>
