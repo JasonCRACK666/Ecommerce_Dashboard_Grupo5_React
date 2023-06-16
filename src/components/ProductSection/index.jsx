@@ -50,6 +50,7 @@ const ProductSection = ({ title, queryFn, queryKey }) => {
             {products.map(product => (
               <CardProductItem
                 key={product.id}
+                id={product.id}
                 title={product.title}
                 averageScore={product.averageScore}
                 countReviews={product.countReviews}

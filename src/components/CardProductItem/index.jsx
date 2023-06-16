@@ -1,6 +1,9 @@
+import { Link } from 'react-router-dom'
+
 import { FaStar } from 'react-icons/fa'
 
 const CardProductItem = ({
+  id,
   image,
   title,
   originalPrice,
@@ -13,12 +16,14 @@ const CardProductItem = ({
 
   return (
     <div className='card'>
-      <img
-        src={image}
-        className='card-img-top'
-        alt='productItem'
-        style={{ height: '220px', objectFit: 'cover' }}
-      />
+      <Link to={`/product/${id}`}>
+        <img
+          src={image}
+          className='card-img-top'
+          alt='productItem'
+          style={{ height: '220px', objectFit: 'cover' }}
+        />
+      </Link>
 
       <div className='card-body bg-dark'>
         <h4 className='card-title text-light'>{title}</h4>
