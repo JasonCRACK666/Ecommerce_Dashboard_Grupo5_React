@@ -9,6 +9,14 @@ export const getProduct = async productId => {
   return res.data
 }
 
+export const searchProducts = async searchParams => {
+  const res = await productEndpoint.get('/search', {
+    params: searchParams
+  })
+
+  return res.data.data
+}
+
 export const getAllComputers = async () => {
   const res = await productEndpoint.get('/search', {
     params: {

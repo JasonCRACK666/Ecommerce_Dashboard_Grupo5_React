@@ -13,6 +13,7 @@ import SignUpPage from './pages/SignUpPage'
 import ActivationPage from './pages/ActivationPage'
 import HomePage from './pages/HomePage'
 import ProductDetailPage from './pages/ProductDetailPage'
+import SearchPage from './pages/SearchPage'
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: '/product/:productId',
         element: <ProductDetailPage />
+      },
+      {
+        path: '/search',
+        element: <SearchPage />
       }
     ]
   }
