@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import { useAuthStore } from '../../store/useAuthStore'
 
 import MenuCategories from '../MenuCategories'
@@ -15,7 +17,9 @@ const Navbar = () => {
       <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
         <div className='container-fluid'>
           <BsCart4 className='fs-3 m-1 text-light' />
-          <a className='navbar-brand'>TECH HOUSE</a>
+          <Link className='navbar-brand' to={'/'}>
+            TECH HOUSE
+          </Link>
 
           <div className='collapse navbar-collapse' id='navbarSupportedContent'>
             <div className='navbar-nav me-auto mb-2 mb-lg-0 gap-2'>
@@ -23,8 +27,8 @@ const Navbar = () => {
               <MenuBrands className='col-3' />
             </div>
 
-            <div className='d-flex'>
-              <form className='d-flex align-items-center'>
+            <div className='d-flex align-items-center'>
+              <form>
                 <input
                   className='form-control me-2'
                   placeholder='Buscar'
