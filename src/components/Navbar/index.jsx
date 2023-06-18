@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { useAuthStore } from '../../store/useAuthStore'
 
@@ -11,6 +11,8 @@ import { BsCart4 } from 'react-icons/bs'
 
 const Navbar = () => {
   const isAuth = useAuthStore(state => state.isAuth)
+
+  const navigate = useNavigate()
 
   return (
     <div>
@@ -28,14 +30,21 @@ const Navbar = () => {
             </div>
 
             <div className='d-flex align-items-center'>
-              <form>
-                <input
-                  className='form-control me-2'
-                  placeholder='Buscar'
-                  aria-label='Search'
-                  style={{ height: '40px', width: '300px' }}
-                />
-              </form>
+              <input
+                className='form-control me-2'
+                placeholder='Buscar'
+                aria-label='Search'
+                style={{ height: '40px', width: '300px' }}
+                onKeyDown={e => {
+                  if (e.key === 'Enter')
+                    navigate({
+                      pathname: '/search',
+                      search: {
+                        q: e.target.value
+                      }
+                    })
+                }}
+              />
 
               {isAuth ? (
                 <UserMenuOptions />
