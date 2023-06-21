@@ -5,11 +5,13 @@ import { useQuery } from '@tanstack/react-query'
 import { getAllCategories } from '../../services/categoryService'
 
 const MenuCategories = () => {
-  const { data, isError, error } = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     queryKey: ['categories'],
     queryFn: getAllCategories,
     refetchOnWindowFocus: false
   })
+
+  if (isLoading) return null
 
   if (isError) return <div>Error: {error.message}</div>
 
@@ -31,9 +33,7 @@ const MenuCategories = () => {
               className='dropdown-item'
               to={{
                 pathname: '/search',
-                search: {
-                  q: category.name
-                }
+                search: '?category=' + category.name
               }}
             >
               {category.name}

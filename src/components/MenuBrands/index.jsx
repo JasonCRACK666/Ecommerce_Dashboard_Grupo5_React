@@ -5,11 +5,13 @@ import { useQuery } from '@tanstack/react-query'
 import { getAllBrands } from '../../services/brandService'
 
 const MenuBrands = () => {
-  const { data, isError, error } = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     queryKey: ['brands'],
     queryFn: getAllBrands,
     refetchOnWindowFocus: false
   })
+
+  if (isLoading) return null
 
   if (isError) return <div>Error: {error.message}</div>
 
@@ -30,9 +32,7 @@ const MenuBrands = () => {
               className='dropdown-item'
               to={{
                 pathname: '/search',
-                search: {
-                  q: brand.name
-                }
+                search: '?brand=' + brand.name
               }}
             >
               {brand.name}
