@@ -39,9 +39,7 @@ const Navbar = () => {
                   if (e.key === 'Enter')
                     navigate({
                       pathname: '/search',
-                      search: {
-                        q: e.target.value
-                      }
+                      search: '?q=' + e.target.value
                     })
                 }}
               />
