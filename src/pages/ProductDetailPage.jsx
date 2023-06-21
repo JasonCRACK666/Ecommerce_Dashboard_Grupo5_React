@@ -89,13 +89,13 @@ const ProductDetailPage = () => {
           </li>
         </ul>
 
-        {isActiveTabDetail && (
+        {isActiveTabDetail() && (
           <div>
             {/* Aquí va la parte de Osmer, cuando empiecen su parte borren este comentario */}
           </div>
         )}
 
-        {isActiveTabReviews && <div>Reseñas</div>}
+        {isActiveTabReviews() && <div>Reseñas</div>}
       </section>
     </div>
   )
