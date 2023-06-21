@@ -6,6 +6,9 @@ import { useQuery } from '@tanstack/react-query'
 
 import { getProduct } from '../services/productService'
 
+import PreviewImages from '../components/PreviewImages'
+import PreviewImagesSkeleton from '../components/PreviewImages/Skeleton'
+
 const ProductDetailPage = () => {
   const { setAlert } = useAlertsStore()
 
@@ -36,10 +39,10 @@ const ProductDetailPage = () => {
 
   if (isLoading)
     return (
-      <div className='container'>
+      <div className='container py-4'>
         <div className='row'>
           <div className='col-6'>
-            {/* Aquí va el loading que va ha hacer Emerzon */}
+            <PreviewImagesSkeleton />
           </div>
           <div className='col-6'>
             {/* Aquí va el loading que va ha hacer Eddie, cuando empiecen su parte borren este comentario */}
@@ -53,7 +56,7 @@ const ProductDetailPage = () => {
 
   if (error)
     return (
-      <div className='container'>
+      <div className='container py-4'>
         <div className='d-flex justify-content-center py-4 fs-4 text-danger'>
           {error.response.data.message}
         </div>
@@ -61,15 +64,17 @@ const ProductDetailPage = () => {
     )
 
   return (
-    <div className='container'>
+    <div className='container py-4'>
       <section className='row'>
-        <div className='col-6'>{/* Esta parte lo hace Emerzon */}</div>
+        <div className='col-6'>
+          <PreviewImages images={product.images} />
+        </div>
         <div className='col-6'>
           {/* Aquí va la parte de Eddie, cuando empiecen su parte borren este comentario */}
         </div>
       </section>
 
-      <section>
+      <section className='mt-10'>
         <ul className='nav nav-tabs'>
           <li className='nav-item'>
             <Link
