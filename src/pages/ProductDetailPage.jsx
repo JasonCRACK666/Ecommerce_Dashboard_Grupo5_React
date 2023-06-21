@@ -10,7 +10,7 @@ const ProductDetailPage = () => {
   const { setAlert } = useAlertsStore()
 
   const { productId } = useParams()
-  const [queries, setQueries] = useSearchParams()
+  const [queries] = useSearchParams()
 
   const {
     data: product,
@@ -74,7 +74,7 @@ const ProductDetailPage = () => {
           <li className='nav-item'>
             <Link
               className={`nav-link ${isActiveTabDetail() && 'active'}`}
-              onClick={() => setQueries({ tab: 'detail' })}
+              to={'?tab=detail'}
             >
               Detalle
             </Link>
@@ -82,7 +82,7 @@ const ProductDetailPage = () => {
           <li className='nav-item'>
             <Link
               className={`nav-link ${isActiveTabReviews() && 'active'}`}
-              onClick={() => setQueries({ tab: 'review' })}
+              to={'?tab=reviews'}
             >
               Reseñas
             </Link>
