@@ -8,6 +8,8 @@ import { getProduct } from '../services/productService'
 
 import PreviewImages from '../components/PreviewImages'
 import PreviewImagesSkeleton from '../components/PreviewImages/Skeleton'
+import ProductDetails from '../components/ProductDetails'
+import ProductDetailsSkeleton from '../components/ProductDetails/Skeleton'
 
 const ProductDetailPage = () => {
   const { setAlert } = useAlertsStore()
@@ -45,7 +47,7 @@ const ProductDetailPage = () => {
             <PreviewImagesSkeleton />
           </div>
           <div className='col-6'>
-            {/* Aquí va el loading que va ha hacer Eddie, cuando empiecen su parte borren este comentario */}
+            <ProductDetailsSkeleton />
           </div>
         </div>
         <section>
@@ -70,7 +72,15 @@ const ProductDetailPage = () => {
           <PreviewImages images={product.images} />
         </div>
         <div className='col-6'>
-          {/* Aquí va la parte de Eddie, cuando empiecen su parte borren este comentario */}
+          <ProductDetails
+            title={product.title}
+            brand={product.brand}
+            category={product.category}
+            colors={product.colors}
+            originalPrice={product.originalPrice}
+            finalPrice={product.finalPrice}
+            discountRate={product.discountRate}
+          />
         </div>
       </section>
 
