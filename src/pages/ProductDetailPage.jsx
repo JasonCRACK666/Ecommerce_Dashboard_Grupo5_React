@@ -10,6 +10,8 @@ import PreviewImages from '../components/PreviewImages'
 import PreviewImagesSkeleton from '../components/PreviewImages/Skeleton'
 import ProductDetails from '../components/ProductDetails'
 import ProductDetailsSkeleton from '../components/ProductDetails/Skeleton'
+import ProductDetailsTabSkeleton from '../components/ProductDetailsTab/skeleton'
+import ProductDetailstab from '../components/ProductDetailsTab'
 
 const ProductDetailPage = () => {
   const { setAlert } = useAlertsStore()
@@ -51,7 +53,7 @@ const ProductDetailPage = () => {
           </div>
         </div>
         <section>
-          {/* Aquí va el loading que va ha hacer Osmer, cuando empiecen su parte borren este comentario */}
+          <ProductDetailsTabSkeleton />
         </section>
       </div>
     )
@@ -106,7 +108,13 @@ const ProductDetailPage = () => {
 
         {isActiveTabDetail() && (
           <div>
-            {/* Aquí va la parte de Osmer, cuando empiecen su parte borren este comentario */}
+            <ProductDetailstab
+              title={product.title}
+              brand={product.brand}
+              category={product.category}
+              colors={product.colors}
+              description={product.description}
+            />
           </div>
         )}
 
