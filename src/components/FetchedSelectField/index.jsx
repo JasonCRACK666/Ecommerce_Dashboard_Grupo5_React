@@ -30,7 +30,11 @@ const FetchedSelectField = ({
 
         {options &&
           options.map(option => (
-            <option value={option.name} key={option.id}>
+            <option
+              className='text-capitalize'
+              value={option.name}
+              key={option.id}
+            >
               {option.name}
             </option>
           ))}

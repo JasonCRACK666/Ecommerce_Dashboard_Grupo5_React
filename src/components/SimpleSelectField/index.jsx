@@ -11,7 +11,7 @@ const SimpleSelectField = ({ id, label, error, options, name, register }) => {
         className={`form-select ${Boolean(error) && 'is-invalid'}`}
       >
         {options.map((option, index) => (
-          <option value={option.value} key={index}>
+          <option className='text-capitalize' value={option.value} key={index}>
             {option.name}
           </option>
         ))}
