@@ -30,7 +30,7 @@ const MenuCategories = () => {
         {data.map(category => (
           <li key={category.id}>
             <Link
-              className='dropdown-item'
+              className='dropdown-item text-capitalize'
               to={{
                 pathname: '/search',
                 search: '?category=' + category.name
