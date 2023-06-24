@@ -11,7 +11,7 @@ import PreviewImagesSkeleton from '../components/PreviewImages/Skeleton'
 import ProductDetails from '../components/ProductDetails'
 import ProductDetailsSkeleton from '../components/ProductDetails/Skeleton'
 import ProductDetailsTabSkeleton from '../components/ProductDetailsTab/skeleton'
-import ProductDetailstab from '../components/ProductDetailsTab'
+import ProductDetailsTab from '../components/ProductDetailsTab'
 
 const ProductDetailPage = () => {
   const { setAlert } = useAlertsStore()
@@ -108,7 +108,7 @@ const ProductDetailPage = () => {
 
         {isActiveTabDetail() && (
           <div>
-            <ProductDetailstab
+            <ProductDetailsTab
               title={product.title}
               brand={product.brand}
               category={product.category}
