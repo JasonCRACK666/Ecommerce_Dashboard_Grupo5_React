@@ -46,10 +46,9 @@ const ProductSection = ({ title, queryFn, queryKey }) => {
         ) : error ? (
           <div className='col-12'>{error.message}</div>
         ) : products ? (
-          <div className='col-md-3'>
-            {products.map(product => (
+          products.map(product => (
+            <div className='col-md-3' key={product.id}>
               <CardProductItem
-                key={product.id}
                 id={product.id}
                 title={product.title}
                 averageScore={product.averageScore}
@@ -59,8 +58,8 @@ const ProductSection = ({ title, queryFn, queryKey }) => {
                 image={product.image.imageUrl}
                 originalPrice={product.originalPrice}
               />
-            ))}
-          </div>
+            </div>
+          ))
         ) : null}
       </div>
     </div>
