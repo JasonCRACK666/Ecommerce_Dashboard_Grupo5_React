@@ -1,59 +1,56 @@
 const ProductDetailsTabSkeleton = () => {
   return (
-    <div className='align-items-center' aria-hidden='true'>
+    <div className='align-items-center gap-2 p-3' aria-hidden='true'>
       <p className='placeholder-glow'>
         <span className='placeholder col-12'></span>
         <span className='placeholder col-12 placeholder-lg'></span>
       </p>
+
       <p className='placeholder-glow'>
-        <span className='placeholder col-4'></span>
-        <span className='placeholder col-7'></span>
+        <span className='placeholder col-12'></span>
+        <span className='placeholder col-12 placeholder-lg'></span>
       </p>
-      <p className='placeholder-glow'>
-        <span className='placeholder col-4'></span>
-        <span className='placeholder col-7'></span>
+
+      <p className='placeholder-glow xd-flex flex-column gap-2'>
+        <span className='placeholder col-12'></span>
+        <span className='placeholder col-12 placeholder-lg'></span>
       </p>
-      <p className='placeholder-glow'>
+
+      <div className='placeholder-glow d-flex flex-column gap-2 mb-3'>
         <span className='placeholder col-8'></span>
-        <span
-          className='placeholder w-1 placeholder col-1 m-1'
-          style={{
-            border: '2px solid',
-            borderRadius: '100px',
-            width: '40px',
-            height: '40px'
-          }}
-        ></span>
-        <span
-          className='placeholder w-1 placeholder col-1 m-1'
-          style={{
-            border: '2px solid',
-            borderRadius: '100px',
-            width: '40px',
-            height: '40px'
-          }}
-        ></span>
-        <span
-          className='placeholder w-1 placeholder col-1 m-1'
-          style={{
-            border: '2px solid',
-            borderRadius: '100px',
-            width: '40px',
-            height: '40px'
-          }}
-        ></span>
-      </p>
-      <p className='placeholder-glow'>
+        <div className='d-flex gap-2'>
+          <span
+            className='placeholder w-1 placeholder col-1 rounded-circle'
+            style={{
+              width: '40px',
+              height: '40px'
+            }}
+          ></span>
+          <span
+            className='placeholder w-1 placeholder col-1 rounded-circle'
+            style={{
+              width: '40px',
+              height: '40px'
+            }}
+          ></span>
+          <span
+            className='placeholder w-1 placeholder col-1 rounded-circle'
+            style={{
+              width: '40px',
+              height: '40px'
+            }}
+          ></span>
+        </div>
+      </div>
+      <div className='placeholder-glow d-flex flex-column gap-2'>
         <span className='placeholder col-6'></span>
         <span
-          className='placeholder col-12 '
+          className='placeholder col-12'
           style={{
-            margin: '10px',
-            width: '300px',
-            height: '300px'
+            height: '100px'
           }}
         ></span>
-      </p>
+      </div>
     </div>
   )
 }
