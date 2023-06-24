@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import { useAlertsStore } from '../store/useAlertsStore'
 
 import { useParams, Link, useSearchParams } from 'react-router-dom'
@@ -35,6 +37,10 @@ const ProductDetailPage = () => {
       })
     }
   })
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 })
+  }, [])
 
   const isActiveTabDetail = () =>
     queries.get('tab') === 'detail' || !queries.get('tab')
