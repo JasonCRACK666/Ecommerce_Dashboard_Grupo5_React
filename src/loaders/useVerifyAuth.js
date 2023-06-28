@@ -17,7 +17,7 @@ export const useVerifyAuth = async () => {
   try {
     const { setUser, token, setToken } = useAuthStore.getState()
 
-    const userData = await getMe()
+    const userData = await getMe(authToken)
 
     setUser(userData)
     setToken(token)
