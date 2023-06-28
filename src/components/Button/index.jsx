@@ -1,8 +1,14 @@
-const Button = ({ loading, loadingMessage, styles, children }) => {
+const Button = ({
+  loading,
+  loadingMessage,
+  styles,
+  children,
+  disabled = false
+}) => {
   return (
     <button
       className={`btn ${styles}`}
-      disabled={Boolean(loading)}
+      disabled={Boolean(loading) || disabled}
       type='submit'
     >
       {loading ? (
