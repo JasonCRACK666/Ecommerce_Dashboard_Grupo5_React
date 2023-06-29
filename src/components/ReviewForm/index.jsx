@@ -1,7 +1,7 @@
 import { useAuthStore } from '../../store/useAuthStore'
 import { useAlertsStore } from '../../store/useAlertsStore'
 
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 import { createReview } from '../../services/reviewService'
 
@@ -22,6 +22,8 @@ const ReviewForm = ({ productId }) => {
   const { isAuth, user } = useAuthStore()
   const { setAlert } = useAlertsStore()
 
+  const queryClient = useQueryClient()
+
   const avatar = isAuth ? user.avatar : imgAvatarDefault
 
   const createReviewMutation = useMutation({
@@ -32,6 +34,7 @@ const ReviewForm = ({ productId }) => {
         timeout: 5000,
         type: 'success'
       })
+      queryClient.invalidateQueries(['reviews', productId])
     },
     onError: error => {
       setAlert({

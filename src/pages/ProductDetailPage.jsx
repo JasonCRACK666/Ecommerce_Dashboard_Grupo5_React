@@ -15,6 +15,7 @@ import ProductDetailsSkeleton from '../components/ProductDetails/Skeleton'
 import ProductDetailsTabSkeleton from '../components/ProductDetailsTab/skeleton'
 import ProductDetailsTab from '../components/ProductDetailsTab'
 import ReviewForm from '../components/ReviewForm'
+import ReviewList from '../components/ReviewList'
 
 const ProductDetailPage = () => {
   const { setAlert } = useAlertsStore()
@@ -126,8 +127,9 @@ const ProductDetailPage = () => {
         )}
 
         {isActiveTabReviews() && (
-          <div className='p-2'>
+          <div className='d-flex flex-column gap-3 p-2'>
             <ReviewForm productId={product.id} />
+            <ReviewList productId={product.id} />
           </div>
         )}
       </section>
