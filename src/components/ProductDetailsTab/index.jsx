@@ -19,7 +19,7 @@ const ProductDetailsTab = ({ title, brand, category, colors, description }) => {
       <div className='d-flex  align-items-end gap-2'>
         {colors.map(color => (
           <div
-            key={color}
+            key={color.id}
             className='w-1'
             style={{
               border: '2px solid',
