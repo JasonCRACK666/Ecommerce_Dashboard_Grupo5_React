@@ -114,7 +114,7 @@ const SignUpPage = () => {
           <Button
             loading={isLoading}
             loadingMessage='Registrando...'
-            styles='btn-primary w-100'
+            className='btn-primary w-100'
           >
             Registrarse
           </Button>

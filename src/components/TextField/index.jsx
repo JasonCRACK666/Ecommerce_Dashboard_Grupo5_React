@@ -1,4 +1,13 @@
-const TextField = ({ id, type = 'text', label, name, error, register }) => {
+const TextField = ({
+  id,
+  type = 'text',
+  defaultValue,
+  label,
+  name,
+  error,
+  register,
+  onChange
+}) => {
   return (
     <div className='form-group mb-3'>
       <label className='form-label' htmlFor={id}>
@@ -7,10 +16,16 @@ const TextField = ({ id, type = 'text', label, name, error, register }) => {
 
       <input
         className={`form-control ${Boolean(error) && 'is-invalid'}`}
-        {...register(name, { valueAsNumber: type === 'number' })}
         id={id}
+        defaultValue={defaultValue}
         name={name}
         type={type}
+        {...register(
+          name,
+          onChange
+            ? { valueAsNumber: type === 'number', onChange }
+            : { valueAsNumber: type === 'number' }
+        )}
       />
 
       {error && <div className='text-danger'>{error.message}</div>}

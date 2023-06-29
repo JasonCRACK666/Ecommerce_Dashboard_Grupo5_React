@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'
 
 import AuthLayout from './layouts/AuthLayout'
 import MainLayout from './layouts/MainLayout'
+import ProfileLayout from './layouts/ProfileLayout'
 
 import { useRedirectIfAuthenticated } from './loaders/useRedirectIfAuthenticated'
 import { useActivateUserAccount } from './loaders/useActivateUserAccount'
@@ -14,6 +15,7 @@ import ActivationPage from './pages/ActivationPage'
 import HomePage from './pages/HomePage'
 import ProductDetailPage from './pages/ProductDetailPage'
 import SearchPage from './pages/SearchPage'
+import ProfilePage from './pages/ProfilePage'
 
 const router = createBrowserRouter([
   {
@@ -53,6 +55,16 @@ const router = createBrowserRouter([
       {
         path: '/search',
         element: <SearchPage />
+      },
+      {
+        path: '/profile',
+        element: <ProfileLayout />,
+        children: [
+          {
+            index: true,
+            element: <ProfilePage />
+          }
+        ]
       }
     ]
   }

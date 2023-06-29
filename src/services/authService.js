@@ -1,18 +1,9 @@
 import axios from 'axios'
 
-import { getAuthToken } from '../utils/getAuthToken'
-
 const API_AUTH_URL = 'http://localhost:8080/api/auth'
 
 const authEndpoint = axios.create({
   baseURL: API_AUTH_URL
-})
-
-const authEndpointWithAuthToken = axios.create({
-  baseURL: API_AUTH_URL,
-  headers: {
-    Authorization: getAuthToken()
-  }
 })
 
 export const signIn = async loginData => {
@@ -30,7 +21,11 @@ export const activateAccount = async activationCode => {
   return res.data
 }
 
-export const getMe = async () => {
-  const res = await authEndpointWithAuthToken.get('/me')
+export const getMe = async token => {
+  const res = await authEndpoint.get('/me', {
+    headers: {
+      Authorization: token
+    }
+  })
   return res.data
 }
