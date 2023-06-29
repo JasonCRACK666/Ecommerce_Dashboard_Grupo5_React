@@ -97,7 +97,7 @@ const SearchForm = ({
           <Button
             loading={isLoading}
             loadingMessage='Buscando...'
-            styles='w-100 btn-primary mt-2'
+            className='w-100 btn-primary mt-2'
           >
             Buscar
           </Button>

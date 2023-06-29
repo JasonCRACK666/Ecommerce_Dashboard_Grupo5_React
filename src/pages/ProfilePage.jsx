@@ -226,7 +226,7 @@ const ProfilePage = () => {
                         disabled={profileDataInEdit.length === 0}
                         loading={updateProfileMutation.isLoading}
                         loadingMessage='Actualizando...'
-                        styles='btn-info mt-2'
+                        className='btn-info mt-2'
                       >
                         Actualizar
                       </Button>

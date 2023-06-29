@@ -72,7 +72,7 @@ const LoginPage = () => {
           <Button
             loading={isLoading}
             loadingMessage={'Ingresando...'}
-            styles={'btn-primary w-100'}
+            className={'btn-primary w-100'}
           >
             Ingresar
           </Button>
