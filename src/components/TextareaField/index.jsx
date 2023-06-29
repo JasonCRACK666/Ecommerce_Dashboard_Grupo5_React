@@ -5,7 +5,8 @@ const EditTextareaField = ({
   name,
   error,
   register,
-  onChange
+  onChange = () => {},
+  rows = 3
 }) => {
   return (
     <div className='form-group mb-3'>
@@ -16,7 +17,7 @@ const EditTextareaField = ({
         id={id}
         className={`form-control ${Boolean(error) && 'is-invalid'}`}
         style={{ resize: 'none' }}
-        rows={4}
+        rows={rows}
         {...register(name, { onChange })}
         defaultValue={defaultValue}
       ></textarea>
