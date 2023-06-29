@@ -14,6 +14,7 @@ import ProductDetails from '../components/ProductDetails'
 import ProductDetailsSkeleton from '../components/ProductDetails/Skeleton'
 import ProductDetailsTabSkeleton from '../components/ProductDetailsTab/skeleton'
 import ProductDetailsTab from '../components/ProductDetailsTab'
+import ReviewForm from '../components/ReviewForm'
 
 const ProductDetailPage = () => {
   const { setAlert } = useAlertsStore()
@@ -92,7 +93,7 @@ const ProductDetailPage = () => {
         </div>
       </section>
 
-      <section className='mt-10'>
+      <section className='mt-3'>
         <ul className='nav nav-tabs'>
           <li className='nav-item'>
             <Link
@@ -124,7 +125,11 @@ const ProductDetailPage = () => {
           </div>
         )}
 
-        {isActiveTabReviews() && <div>Reseñas</div>}
+        {isActiveTabReviews() && (
+          <div className='p-2'>
+            <ReviewForm productId={product.id} />
+          </div>
+        )}
       </section>
     </div>
   )
