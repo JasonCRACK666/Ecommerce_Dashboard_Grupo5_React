@@ -9,23 +9,23 @@ const ProductDetails = ({
   discountRate
 }) => {
   return (
-    <div className='align-items-center'>
+    <div>
       <h1>{title}</h1>
-      <div className='d-flex align-items-end gap-2'>
+      <div className='d-flex gap-2 mb-1'>
         <p className='fw-bold my-2'>Marca:</p>
         <p className='my-2'> {brand.name}</p>
         <img
-          className='border border-dark border-1 rounded-5'
+          className='border border-dark border-1 rounded-circle object-fit-cover'
+          src={brand.logo}
           style={{
             width: '40px',
             aspectRatio: 1 / 1
           }}
-          src={brand.logo}
         />
       </div>
-      <div className='d-flex align-items-end gap-2'>
-        <p className='fw-bold'>Categoría:</p>
-        <p>{category.name}</p>
+      <div className='d-flex gap-2 mb-2'>
+        <p className='fw-bold mb-0'>Categoría:</p>
+        <p className='text-capitalize mb-0'>{category.name}</p>
       </div>
       <p className='fw-bold'>Colores:</p>
       <div className='d-flex  align-items-end gap-2'>
@@ -44,7 +44,7 @@ const ProductDetails = ({
         ))}
       </div>
       <div className='d-flex align-items-end gap-2'>
-        {discountRate === null ? (
+        {!discountRate ? (
           <Fragment>
             <p className=' fw-bold fs-1 m-4'>S/{finalPrice}</p>
           </Fragment>
