@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 const ProductDetails = ({
   title,
   colors,
@@ -13,7 +14,14 @@ const ProductDetails = ({
       <div className='d-flex align-items-end gap-2'>
         <p className='fw-bold my-2'>Marca:</p>
         <p className='my-2'> {brand.name}</p>
-        <img style={{ width: '40px' }} src={brand.logo} />
+        <img
+          className='border border-dark border-1 rounded-5'
+          style={{
+            width: '40px',
+            aspectRatio: 1 / 1
+          }}
+          src={brand.logo}
+        />
       </div>
       <div className='d-flex align-items-end gap-2'>
         <p className='fw-bold'>Categoría:</p>
@@ -36,18 +44,26 @@ const ProductDetails = ({
         ))}
       </div>
       <div className='d-flex align-items-end gap-2'>
-        <p className=' fw-bold fs-1 m-4'>S/{finalPrice}</p>
-        <span
-          style={{
-            border: '0.75vw solid',
-            borderColor: ' #000000 transparent transparent #000000',
-            transform: 'rotate(-45deg)'
-          }}
-        ></span>
-        <p className='mb-1'>{discountRate}%</p>
-        <p className='text-decoration-line-through text-secondary fs-1 m-4'>
-          S/{originalPrice}
-        </p>
+        {discountRate === null ? (
+          <Fragment>
+            <p className=' fw-bold fs-1 m-4'>S/{finalPrice}</p>
+          </Fragment>
+        ) : (
+          <Fragment>
+            <p className=' fw-bold fs-1 m-4'>S/{finalPrice}</p>
+            <span
+              style={{
+                border: '0.75vw solid',
+                borderColor: ' #000000 transparent transparent #000000',
+                transform: 'rotate(-45deg)'
+              }}
+            ></span>
+            <p className='mb-1'>{discountRate}%</p>
+            <p className='text-decoration-line-through text-secondary fs-1 m-4'>
+              S/{originalPrice}
+            </p>
+          </Fragment>
+        )}
       </div>
     </div>
   )
