@@ -28,7 +28,7 @@ const ProfilePage = () => {
 
   const profileQuery = useQuery({
     queryKey: ['profile'],
-    queryFn: getProfile,
+    queryFn: () => getProfile(getAuthToken()),
     refetchOnWindowFocus: false
   })
 

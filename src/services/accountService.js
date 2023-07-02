@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { getAuthToken } from '../utils/getAuthToken'
+// import { getAuthToken } from '../utils/getAuthToken'
 
 const API_ACCOUNT_URL = 'http://localhost:8080/api/account'
 
@@ -8,15 +8,19 @@ const accountEndpoint = axios.create({
   baseURL: API_ACCOUNT_URL
 })
 
-const accountEndpointWithAuthToken = axios.create({
-  baseURL: API_ACCOUNT_URL,
-  headers: {
-    Authorization: getAuthToken()
-  }
-})
+// const accountEndpointWithAuthToken = axios.create({
+//   baseURL: API_ACCOUNT_URL,
+//   headers: {
+//     Authorization: getAuthToken()
+//   }
+// })
 
-export const getProfile = async () => {
-  const res = await accountEndpointWithAuthToken.get('')
+export const getProfile = async token => {
+  const res = await accountEndpoint.get('', {
+    headers: {
+      Authorization: token
+    }
+  })
   return res.data
 }
 
